@@ -4,7 +4,7 @@
 
 ## [Download](https://github.com/Pe8er/Strava.widget/raw/master/Strava.widget.zip)
 
-This widget displays your weekly and yearly biking stats:
+This widget grabs your weekly and yearly biking stats from [Strava](https://www.strava.com/) and displays them in a somewhat visual manner.
 
 ![Instructions](http://imgur.com/nGiCWi2.jpg)
 
