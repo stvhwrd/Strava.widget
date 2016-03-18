@@ -1,24 +1,14 @@
--- this is for testing
---my test({"7217285", "545a5f91ea156a7a415f8ea985c277a2808f5caf", "KM", "4000"})
-
 -- Strava API documentation: http://strava.github.io/api/
 
--- Set a few global variables because I'm lazy, please don't touch --
+-- Set a few global variables because I'm lazy, please don't touch
 global scriptStart, scriptEnd, myID, unit
 
--- Set options below --
 on run (arguments)
+	-- grab arguments from input
 	set myID to item 1 of arguments
 	set token to item 2 of arguments
 	set unit to item 3 of arguments
 	set yDistGoal to item 4 of arguments
-	
-	(*
-set myID to "7217285" -- your Strava user ID
-set token to "545a5f91ea156a7a415f8ea985c277a2808f5caf" -- your Strava authorization token. Get one here: https://www.strava.com/settings/api
-set unit to "KM" -- distance units (KM or M)
-set yDistGoal to 4000 -- your yearly biking goal
-*)
 	
 	set scriptStart to "curl -G https://www.strava.com/api/v3/athlete"
 	set scriptEnd to " -H 'Authorization: Bearer " & token & "'"
