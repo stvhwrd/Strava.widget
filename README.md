@@ -6,7 +6,7 @@
 
 This widget displays your weekly and yearly biking stats:
 
-![Instructions](http://imgur.com/WzLi0ol.jpg)
+![Instructions](http://imgur.com/nGiCWi2.jpg)
 
 ## How to Use
 
