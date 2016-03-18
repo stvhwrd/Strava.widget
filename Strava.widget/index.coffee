@@ -34,6 +34,8 @@ style: """
   position relative
   -webkit-backdrop-filter blur(20px) brightness(70%) contrast(120%) saturate(140%)
   font-family system, -apple-system
+  opacity 0
+  display none
 
   *, *:before, *:after
     box-sizing border-box
@@ -71,19 +73,19 @@ style: """
     height 8px
     width 100%
     max-width 100%
+    min-width 0%
     z-index 1
     position absolute
 
   .goal
     background-color white02
     z-index 2
-    width 20%
+    width 2%
 
   .progress
     background-color white
     z-index 3
-    width 10%
-
+    width 1%
 """
 
 render: (output) ->
@@ -95,7 +97,7 @@ render: (output) ->
     <div class='wrapper'>
       <div class='week'>
         <span class='left'>Week</span>
-        <span class='wDistance'>TEST KM</span>
+        <span class='wDistance'>No Data</span>
         <div class='bars'>
           <div class='bar'></div>
           <div class='bar progress'></div>
@@ -104,7 +106,7 @@ render: (output) ->
       </div>
       <div class='year'>
         <span class='left'>Year</span>
-        <span class='yDistance'>TEST KM</span>
+        <span class='yDistance'>No Data</span>
         <div class='bars'>
           <div class='bar'></div>
           <div class='bar progress'></div>
@@ -117,33 +119,42 @@ render: (output) ->
 # Update the rendered output.
 update: (output, domEl) ->
 
-  # Get our main DIV.
-  div = $(domEl)
-
   # Get our pieces.
   values = output.slice(0,-1).split("~")
+
+  # Get our main DIV.
+  div = $(domEl)
 
   # Initialize our HTML.
   stravaHTML = ''
 
-  # Define variables
-  wDistance = values[0]
-  wProgress = values[1]
-  wGoal = values[2]
-  yDistance = values[3]
-  yProgress = values[4]
-  yGoal = values[5]
+  if values[0] != "NA"
 
-  # Update text values
-  $(domEl).find('.wDistance').html(wDistance)
-  $(domEl).find('.yDistance').html(yDistance)
+    # Define variables
+    wDistance = values[0]
+    wProgress = values[1]
+    wGoal = values[2]
+    yDistance = values[3]
+    yProgress = values[4]
+    yGoal = values[5]
 
-  # Update bar widths
-  $(domEl).find('.week .progress').css('width', wProgress)
-  $(domEl).find('.week .goal').css('width', wGoal)
-  $(domEl).find('.year .progress').css('width', yProgress)
-  $(domEl).find('.year .goal').css('width', yGoal)
+    # Update text values
+    div.find('.wDistance').html(wDistance)
+    div.find('.yDistance').html(yDistance)
+
+    # Update bar widths
+    div.find('.week .progress').css('width', wProgress)
+    div.find('.week .goal').css('width', wGoal)
+    div.find('.year .progress').css('width', yProgress)
+    div.find('.year .goal').css('width', yGoal)
+
+    # Show the damn thing!
+    div.css('display', 'block')
+    div.animate({ opacity: 1 }, 250)
+  else
+    div.css('display', 'none')
+    div.animate({ opacity: 0 }, 250)
 
   # Sort out flex-box positioning.
-  $(domEl).parent('div').css('order', '4')
-  $(domEl).parent('div').css('flex', '0 1 auto')
+  div.parent('div').css('order', '4')
+  div.parent('div').css('flex', '0 1 auto')

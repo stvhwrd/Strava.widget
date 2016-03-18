@@ -24,27 +24,31 @@ on run (arguments)
 	------------------------------------------------
 	
 	
-	
-	set wDistance to getwDistance()
-	set wProgress to makePercent(wDistance / wDistGoal)
-	set wGoal to makePercent((dNumber * dGoal) / wDistGoal)
-	set yDistance to getyDistance()
-	set yProgress to makePercent(yDistance / yDistGoal)
-	set yGoal to makePercent((wNumber * wDistGoal) / yDistGoal)
-	
-	if unit is "M" then
-		set wDistance to toMiles(wDistance)
-		set yDistance to toMiles(yDistance)
-	end if
-	
-	return Â
-		wDistance & space & unit & "~" & Â
-		wProgress & "~" & Â
-		wGoal & "~" & Â
-		yDistance & space & unit & "~" & Â
-		yProgress & "~" & Â
-		yGoal Â
-			as string
+	try
+		set wDistance to getwDistance()
+		set wProgress to makePercent(wDistance / wDistGoal)
+		set wGoal to makePercent((dNumber * dGoal) / wDistGoal)
+		set yDistance to getyDistance()
+		set yProgress to makePercent(yDistance / yDistGoal)
+		set yGoal to makePercent((wNumber * wDistGoal) / yDistGoal)
+		
+		if unit is "M" then
+			set wDistance to toMiles(wDistance)
+			set yDistance to toMiles(yDistance)
+		end if
+		
+		return Â
+			wDistance & space & unit & "~" & Â
+			wProgress & "~" & Â
+			wGoal & "~" & Â
+			yDistance & space & unit & "~" & Â
+			yProgress & "~" & Â
+			yGoal Â
+				as string
+	on error e
+		logEvent(e)
+		return "NA"
+	end try
 end run
 
 
@@ -92,3 +96,8 @@ end roundThis
 on toMiles(n)
 	return roundThis(n * 0.621371)
 end toMiles
+
+on logEvent(e)
+	tell application "Finder" to set myName to (name of file (path to me))
+	do shell script "echo '" & (current date) & space & quoted form of (e as string) & "' >> ~/Library/Logs/" & myName & ".log"
+end logEvent
