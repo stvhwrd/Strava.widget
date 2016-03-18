@@ -10,9 +10,9 @@ This widget grabs your weekly and yearly biking stats from [Strava](https://www.
 
 ## How to Use
 
-1. Extract and copy `Strava.widget` folder in `~/Library/Application Support/Übersicht/Widgets` folder.
+1. Unzip and copy `Strava.widget` folder to `~/Library/Application Support/Übersicht/Widgets` folder.
 1. Open `Strava/widget/index.coffee` in a text editor.
-2. Edit values in lines 7-13 to set your preferences.
+2. Edit values in lines 7-13 to set your preferences:
 
 ```
 options =
