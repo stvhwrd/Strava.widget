@@ -10,18 +10,21 @@ This widget grabs your weekly and yearly biking stats from [Strava](https://www.
 
 ## How to Use
 
-1. Unzip and copy `Strava.widget` folder to `~/Library/Application Support/Übersicht/Widgets` folder.
+1. Unzip and copy `Strava.widget` folder to `~/Library/Application Support/Übersicht/Widgets` folder.
 1. Open `Strava/widget/index.coffee` in a text editor.
 2. Edit values in lines 7-13 to set your preferences:
 
 ```
 options =
   # Your Strava user ID. It's at the end of your profile page URL.
-  myid          :         "7217285"
+  myid          :         "XXXX"
+  
   # Your Strava authorization token. Get one here: https://www.strava.com/settings/api
-  token         :         "545a5f91ea156a7a415f8ea985c277a2808f5caf"
+  token         :         "XXXX"
+  
   # Distance units: KM for kilometers or M for miles.
   units         :         "KM"
+  
   # Your yearly biking goal in kilometers.
   yearlygoal    :         "4000"
 ```
