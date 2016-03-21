@@ -61,27 +61,37 @@ end run
 on getwDistance()
 	set wDistance to 0
 	set wDistanceRaw to do shell script scriptStart & "/activities" & scriptEnd & " -d after=" & (do shell script "date -v-Mon -v 0H -v 0M -v 0S +%s")
-	set AppleScript's text item delimiters to "\"distance\":"
-	set wDistanceRaw to text items 2 thru -1 of wDistanceRaw
-	repeat with aDay in wDistanceRaw
-		set AppleScript's text item delimiters to ","
-		set aDistance to text item 1 of aDay
-		set wDistance to (aDistance / 1000) + wDistance
-	end repeat
-	set AppleScript's text item delimiters to ""
-	return roundThis(wDistance)
+	try
+		set AppleScript's text item delimiters to "\"distance\":"
+		set wDistanceRaw to text items 2 thru -1 of wDistanceRaw
+		repeat with aDay in wDistanceRaw
+			set AppleScript's text item delimiters to ","
+			set aDistance to text item 1 of aDay
+			set wDistance to (aDistance / 1000) + wDistance
+		end repeat
+		set AppleScript's text item delimiters to ""
+		return roundThis(wDistance)
+	on error e
+		logEvent(e)
+		return 0
+	end try
 end getwDistance
 
 on getyDistance()
-	set totalsRaw to do shell script scriptStart & "s/" & myID & "/stats" & scriptEnd
-	set AppleScript's text item delimiters to "ytd_ride_totals\":{\"count\""
-	set totalsRaw to text item 2 of totalsRaw
-	set AppleScript's text item delimiters to ":"
-	set totalsRaw to text item 3 of totalsRaw
-	set AppleScript's text item delimiters to ","
-	set yDistance to (text item 1 of totalsRaw) / 1000
-	set AppleScript's text item delimiters to ""
-	return roundThis(yDistance)
+	try
+		set totalsRaw to do shell script scriptStart & "s/" & myID & "/stats" & scriptEnd
+		set AppleScript's text item delimiters to "ytd_ride_totals\":{\"count\""
+		set totalsRaw to text item 2 of totalsRaw
+		set AppleScript's text item delimiters to ":"
+		set totalsRaw to text item 3 of totalsRaw
+		set AppleScript's text item delimiters to ","
+		set yDistance to (text item 1 of totalsRaw) / 1000
+		set AppleScript's text item delimiters to ""
+		return roundThis(yDistance)
+	on error e
+		logEvent(e)
+		return 0
+	end try
 end getyDistance
 
 on makePercent(thisNumber)
