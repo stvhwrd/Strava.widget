@@ -85,6 +85,7 @@ style: """
   .progress
     background-color white
     z-index 3
+    min-width 1%
     width 1%
 """
 

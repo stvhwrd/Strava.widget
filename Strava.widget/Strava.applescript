@@ -60,21 +60,22 @@ end run
 
 on getwDistance()
 	set wDistance to 0
-	set wDistanceRaw to do shell script scriptStart & "/activities" & scriptEnd & " -d after=" & (do shell script "date -v-Mon -v 0H -v 0M -v 0S +%s")
 	try
+		set wDistanceRaw to do shell script scriptStart & "/activities" & scriptEnd & " -d after=" & (do shell script "date -v-Mon -v 0H -v 0M -v 0S +%s")
 		set AppleScript's text item delimiters to "\"distance\":"
 		set wDistanceRaw to text items 2 thru -1 of wDistanceRaw
-		repeat with aDay in wDistanceRaw
-			set AppleScript's text item delimiters to ","
-			set aDistance to text item 1 of aDay
-			set wDistance to (aDistance / 1000) + wDistance
-		end repeat
-		set AppleScript's text item delimiters to ""
-		return roundThis(wDistance)
 	on error e
 		logEvent(e)
+		set AppleScript's text item delimiters to ""
 		return 0
 	end try
+	repeat with aDay in wDistanceRaw
+		set AppleScript's text item delimiters to ","
+		set aDistance to text item 1 of aDay
+		set wDistance to (aDistance / 1000) + wDistance
+	end repeat
+	set AppleScript's text item delimiters to ""
+	return roundThis(wDistance)
 end getwDistance
 
 on getyDistance()
