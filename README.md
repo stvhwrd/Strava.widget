@@ -6,7 +6,7 @@
 
 This widget grabs your weekly and yearly biking stats from [Strava](https://www.strava.com/) and displays them in a somewhat visual manner.
 
-![Instructions](http://imgur.com/ZzwXhFd.png)
+<img src="https://github.com/Pe8er/Strava.widget/blob/master/instructions.jpg" width="420" height="300">
 
 ## How to Use
 
