@@ -1,6 +1,6 @@
 # Strava Progress Tracker for [Übersicht](http://tracesof.net/uebersicht/)
 
-![](https://github.com/Pe8er/Strava.widget/blob/master/screenshot.png)
+<img src="https://github.com/Pe8er/Strava.widget/blob/master/screenshot.jpg" width="516" height="320">
 
 ## [Download](https://github.com/Pe8er/Strava.widget/raw/master/Strava.widget.zip)
 
@@ -18,13 +18,13 @@ This widget grabs your weekly and yearly biking stats from [Strava](https://www.
 options =
   # Your Strava user ID. It's at the end of your profile page URL.
   myid          :         "XXXX"
-  
+
   # Your Strava authorization token. Get one here: https://www.strava.com/settings/api
   token         :         "XXXX"
-  
+
   # Distance units: KM for kilometers or M for miles.
   units         :         "KM"
-  
+
   # Your yearly biking goal in kilometers.
   yearlygoal    :         "4000"
 ```

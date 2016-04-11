@@ -14,7 +14,7 @@ on run (arguments)
 	set scriptEnd to " -H 'Authorization: Bearer " & token & "'"
 	set wDistGoal to yDistGoal / 52
 	set wNumber to (do shell script "date '+%V'") as number
-	set dGoal to wDistGoal / 6 -- biking 6 days a week + 1 day of recovery
+	set dGoal to wDistGoal / 7
 	set dNumber to (do shell script "date '+%u'") as number
 	
 	
@@ -101,7 +101,18 @@ end makePercent
 
 on roundThis(n)
 	set x to 10 ^ 1
-	(((n * x) + 0.5) div 1) / x
+	set y to (((n * x) + 0.5) div 1) / x
+	set AppleScript's text item delimiters to "."
+	set y1 to text item 1 of (y as string)
+	set y2 to text item 2 of (y as string)
+	set AppleScript's text item delimiters to ""
+	if y2 starts with 0 then
+		set dot to ""
+		set y2 to ""
+	else
+		set dot to "."
+	end if
+	return (y1 & dot & y2) as number
 end roundThis
 
 on toMiles(n)

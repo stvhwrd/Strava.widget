@@ -73,7 +73,7 @@ style: """
     height 8px
     width 100%
     max-width 100%
-    min-width 0%
+    min-width 1%
     z-index 1
     position absolute
 
@@ -85,7 +85,6 @@ style: """
   .progress
     background-color white
     z-index 3
-    min-width 1%
     width 1%
 """
 
