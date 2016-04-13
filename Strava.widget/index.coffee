@@ -3,6 +3,8 @@
 # Haphazardly adjusted and mangled by Pe8er (https://github.com/Pe8er)
 
 options =
+  # Easily enable or disable the widget.
+  widgetEnable  :         true
   # Your Strava user ID. It's at the end of your profile page URL.
   myid          :         "7217285"
   # Your Strava authorization token. Get one here: https://www.strava.com/settings/api. If you keep using mine, you will see my stats. Those aren't very impressive :)
@@ -88,6 +90,8 @@ style: """
     width 1%
 """
 
+options : options
+
 render: (output) ->
   # Initialize our HTML.
   stravaHTML = ''
@@ -119,42 +123,45 @@ render: (output) ->
 # Update the rendered output.
 update: (output, domEl) ->
 
-  # Get our pieces.
-  values = output.slice(0,-1).split("~")
-
   # Get our main DIV.
   div = $(domEl)
 
-  # Initialize our HTML.
-  stravaHTML = ''
+  if @options.widgetEnable
+    # Get our pieces.
+    values = output.slice(0,-1).split("~")
 
-  if values[0] != "NA"
+    # Initialize our HTML.
+    stravaHTML = ''
 
-    # Define variables
-    wDistance = values[0]
-    wProgress = values[1]
-    wGoal = values[2]
-    yDistance = values[3]
-    yProgress = values[4]
-    yGoal = values[5]
+    if values[0] != "NA"
 
-    # Update text values
-    div.find('.wDistance').html(wDistance)
-    div.find('.yDistance').html(yDistance)
+      # Define variables
+      wDistance = values[0]
+      wProgress = values[1]
+      wGoal = values[2]
+      yDistance = values[3]
+      yProgress = values[4]
+      yGoal = values[5]
 
-    # Update bar widths
-    div.find('.week .progress').css('width', wProgress)
-    div.find('.week .goal').css('width', wGoal)
-    div.find('.year .progress').css('width', yProgress)
-    div.find('.year .goal').css('width', yGoal)
+      # Update text values
+      div.find('.wDistance').html(wDistance)
+      div.find('.yDistance').html(yDistance)
 
-    # Show the damn thing!
-    div.css('display', 'block')
-    div.animate({ opacity: 1 }, 250)
+      # Update bar widths
+      div.find('.week .progress').css('width', wProgress)
+      div.find('.week .goal').css('width', wGoal)
+      div.find('.year .progress').css('width', yProgress)
+      div.find('.year .goal').css('width', yGoal)
+
+      # Show the damn thing!
+      div.css('display', 'block')
+      div.animate({ opacity: 1 }, 250)
+    else
+      div.css('display', 'none')
+      div.animate({ opacity: 0 }, 250)
+
+    # Sort out flex-box positioning.
+    div.parent('div').css('order', '4')
+    div.parent('div').css('flex', '0 1 auto')
   else
-    div.css('display', 'none')
-    div.animate({ opacity: 0 }, 250)
-
-  # Sort out flex-box positioning.
-  div.parent('div').css('order', '4')
-  div.parent('div').css('flex', '0 1 auto')
+    div.hide()

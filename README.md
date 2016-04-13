@@ -16,17 +16,20 @@ This widget grabs your weekly and yearly biking stats from [Strava](https://www.
 
 ```
 options =
+  # Easily enable or disable the widget.
+  widgetEnable  :         true
   # Your Strava user ID. It's at the end of your profile page URL.
-  myid          :         "XXXX"
-
-  # Your Strava authorization token. Get one here: https://www.strava.com/settings/api
+  myid          :         "XXX"
+  # Your Strava authorization token. Get one here: https://www.strava.com/settings/api. If you keep using mine, you will see my stats. Those aren't very impressive :)
   token         :         "XXXX"
-
   # Distance units: KM for kilometers or M for miles.
   units         :         "KM"
-
   # Your yearly biking goal in kilometers.
   yearlygoal    :         "4000"
+  # Vertical distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. No need to put it inside Sidebar folder!
+  top           :         "0"
+  # Horizontal distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. No need to put it inside Sidebar folder!
+  left          :         "0"
 ```
 
 If you don't edit these, the widget will show my statistics. (Which aren't that impressive at all!)
