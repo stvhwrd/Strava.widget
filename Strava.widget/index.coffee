@@ -6,9 +6,9 @@ options =
   # Easily enable or disable the widget.
   widgetEnable  :         true
   # Your Strava user ID. It's at the end of your profile page URL.
-  myid          :         "7217285"
-  # Your Strava authorization token. Get one here: https://www.strava.com/settings/api. If you keep using mine, you will see my stats. Those aren't very impressive :)
-  token         :         "545a5f91ea156a7a415f8ea985c277a2808f5caf"
+  myid          :         "XXX"
+  # Your Strava authorization token. Get one here: https://www.strava.com/settings/api.
+  token         :         "XXX"
   # Distance units: KM for kilometers or M for miles.
   units         :         "KM"
   # Your yearly biking goal in kilometers.
@@ -88,6 +88,11 @@ style: """
     background-color white
     z-index 3
     width 1%
+
+  .outdone
+    background none
+    height 10px
+    border-right 1px solid white05
 """
 
 options : options
@@ -152,6 +157,8 @@ update: (output, domEl) ->
       div.find('.week .goal').css('width', wGoal)
       div.find('.year .progress').css('width', yProgress)
       div.find('.year .goal').css('width', yGoal)
+      if yGoal < yProgress
+        div.find('.year .goal').addClass('outdone')
 
       # Show the damn thing!
       div.css('display', 'block')
