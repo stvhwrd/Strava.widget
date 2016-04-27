@@ -4,19 +4,19 @@
 
 options =
   # Easily enable or disable the widget.
-  widgetEnable  :         true
+  widgetEnable    :         true
   # Your Strava user ID. It's at the end of your profile page URL.
-  myid          :         "7217285"
-  # Your Strava authorization token. Get one here: https://www.strava.com/settings/api.
-  token         :         "545a5f91ea156a7a415f8ea985c277a2808f5caf"
+  myid            :         "7217285"
+  # Your Strava authorization token. Get one here - www.strava.com/settings/api.
+  token           :         "545a5f91ea156a7a415f8ea985c277a2808f5caf"
   # Distance units: KM for kilometers or M for miles.
-  units         :         "KM"
+  units           :         "KM"
   # Your yearly biking goal in kilometers.
-  yearlygoal    :         "4000"
+  yearlygoal      :         "4000"
   # Vertical distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. No need to put it inside Sidebar folder!
-  top           :         "0"
+  top             :         "0"
   # Horizontal distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. No need to put it inside Sidebar folder!
-  left          :         "0"
+  left            :         "0"
 
 refreshFrequency:         '1h'
 
