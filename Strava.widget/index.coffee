@@ -13,10 +13,8 @@ options =
   units           :         "KM"
   # Your yearly biking goal in kilometers.
   yearlygoal      :         "4000"
-  # Vertical distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. No need to put it inside Sidebar folder!
-  top             :         "0"
-  # Horizontal distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. No need to put it inside Sidebar folder!
-  left            :         "0"
+  # Stick the widget in the bottom right corner? Set to *true* if you're using it with Sidebar widget, set to *false* if you'd like to give it some breathing room and a drop shadow.
+  stickInCorner   :         true
 
 refreshFrequency:         '1h'
 
@@ -24,12 +22,20 @@ command: "osascript Strava.widget/Strava.applescript #{options.myid} #{options.t
 
 style: """
 
+  // A few useful variables.
   white1 = rgba(white,1)
   white05 = rgba(white,0.5)
   white02 = rgba(white,0.2)
 
-  top #{options.top}px
-  left #{options.left}px
+  if #{options.stickInCorner} == false
+    margin = 20px
+    box-shadow 0 20px 50px 10px rgba(0,0,0,.6)
+  else
+    margin = 0
+  transform-style preserve-3d
+
+  bottom margin
+  right margin
   width 176px
   overflow hidden
   white-space nowrap
@@ -91,7 +97,7 @@ style: """
 
   .outdone
     background none
-    height 10px
+    height 12px
     border-right 1px solid white05
 """
 
@@ -164,10 +170,10 @@ update: (output, domEl) ->
 
       # Show the damn thing!
       div.css('display', 'block')
-      div.animate({ opacity: 1 }, 250)
+      div.animate {opacity: 1}, 250, 'swing'
     else
       div.css('display', 'none')
-      div.animate({ opacity: 0 }, 250)
+      div.animate {opacity: 0}, 250, 'swing'
 
     # Sort out flex-box positioning.
     div.parent('div').css('order', '4')
