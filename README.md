@@ -1,3 +1,4 @@
+
 # Strava Progress Tracker for [Übersicht](http://tracesof.net/uebersicht/)
 
 ![Screenshot](https://github.com/stvhwrd/Strava.widget/blob/master/screenshot.png)
@@ -6,7 +7,7 @@
 
 This widget displays your weekly and year-to-date cycling stats from [Strava](https://www.strava.com/).
 
-![Explanation](https://github.com/stvhwrd/Strava.widget/blob/master/instructions.jpg)
+<img src="https://github.com/stvhwrd/Strava.widget/blob/master/instructions.jpg" width="420" height="300">
 
 ## How to Use
 
