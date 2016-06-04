@@ -1,12 +1,12 @@
 # Strava Progress Tracker for [Übersicht](http://tracesof.net/uebersicht/)
 
-<img src="https://github.com/Pe8er/Strava.widget/blob/master/screenshot.jpg" width="516" height="320">
+![Screenshot](https://github.com/stvhwrd/Strava.widget/blob/master/screenshot.png)
 
-## [Download](https://github.com/Pe8er/Strava.widget/raw/master/Strava.widget.zip)
+## [Download](https://github.com/stvhwrd/Strava.widget/raw/master/Strava.widget.zip)
 
-This widget grabs your weekly and yearly biking stats from [Strava](https://www.strava.com/) and displays them in a somewhat visual manner.
+This widget displays your weekly and year-to-date cycling stats from [Strava](https://www.strava.com/).
 
-<img src="https://github.com/Pe8er/Strava.widget/blob/master/instructions.jpg" width="420" height="300">
+![Explanation](https://github.com/stvhwrd/Strava.widget/blob/master/instructions.jpg)
 
 ## How to Use
 
@@ -36,4 +36,4 @@ If you don't edit these, the widget will show my statistics. (Which aren't that 
 
 It supports flex positioning, easy background blur and tons of probably very poorly written code.
 
-[See my other widgets](https://github.com/Pe8er/Ubersicht-Widgets)
+This is a fork of Piotr Gajos' widget.  [See Pe8er's other widgets](https://github.com/Pe8er/Ubersicht-Widgets)
