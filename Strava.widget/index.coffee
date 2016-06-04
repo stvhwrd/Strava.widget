@@ -1,22 +1,23 @@
-# Code originally created by the awesome members of Ubersicht community.
-# I stole from so many I can't remember who you are, thank you so much everyone!
-# Haphazardly adjusted and mangled by Pe8er (https://github.com/Pe8er)
+#// Code originally created by the awesome members of Ubersicht community.
+#// I stole from so many I can't remember who you are, thank you so much everyone!
+#// Haphazardly adjusted and mangled by Pe8er (https://github.com/Pe8er)
 
 options =
-  # Easily enable or disable the widget.
+  #// Easily enable or disable the widget.
   widgetEnable    :         true
-  # Your Strava user ID. It's at the end of your profile page URL.
-  myid            :         "7217285"
-  # Your Strava authorization token. Get one here - www.strava.com/settings/api.
-  token           :         "545a5f91ea156a7a415f8ea985c277a2808f5caf"
-  # Distance units: KM for kilometers or M for miles.
+  #// Your Strava user ID. It's at the end of your profile page URL.
+  myid            :         "1234567"
+  #// Your Strava authorization token. Get one here - www.strava.com/settings/api.
+  token           :         "m7w0ke1xnc7yrkoyik7mdaudbm257c083b6rydm3"
+  #// Distance units: KM for kilometers or M for miles.
   units           :         "KM"
-  # Your yearly biking goal in kilometers.
+  #// Your yearly biking goal in kilometers.
   yearlygoal      :         "4000"
-  # Stick the widget in the bottom right corner? Set to *true* if you're using it with Sidebar widget, set to *false* if you'd like to give it some breathing room and a drop shadow.
-  stickInCorner   :         true
+  #// Stick the widget in the bottom right corner? Set to *true* if you're using it with Sidebar widget, set to *false* if you'd like to give it some breathing room and a drop shadow.
+  stickInCorner   :         false
 
 refreshFrequency:         '1h'
+
 
 command: "osascript Strava.widget/Strava.applescript #{options.myid} #{options.token} #{options.units} #{options.yearlygoal}"
 
@@ -34,9 +35,9 @@ style: """
     margin = 0
   transform-style preserve-3d
 
-  bottom margin
-  right margin
-  width 176px
+  top margin
+  left margin
+  width 300px
   overflow hidden
   white-space nowrap
   position relative
@@ -49,13 +50,13 @@ style: """
     box-sizing border-box
 
   .wrapper
-    font-size 8pt
-    line-height 11pt
+    font-size 10pt
+    line-height 13pt
     color white
     padding 8px
     height auto
 
-  .week, .year
+  .week, .month, .year
     width 100%
     margin-bottom 4px
 
@@ -63,7 +64,7 @@ style: """
     opacity 0.5
     float left
 
-  .wDistance, .yDistance
+  .wDistance, .mDistance, .yDistance
     display block
     margin 0 0 0 auto
     font-weight 700
@@ -104,11 +105,12 @@ style: """
 options : options
 
 render: (output) ->
-  # Initialize our HTML.
+  #// Initialize our HTML.
   stravaHTML = ''
 
-  # Create the DIVs for each piece of data.
+  #// Create the DIVs for each piece of data.
   stravaHTML = "
+  <img src='https://web.uvic.ca/~stvhwrd/slim-strava-banner.png' width='300'>
     <div class='wrapper'>
       <div class='week'>
         <span class='left'>Week</span>
@@ -131,34 +133,38 @@ render: (output) ->
      </div>"
   return stravaHTML
 
-# Update the rendered output.
+#// Update the rendered output.
 update: (output, domEl) ->
 
-  # Get our main DIV.
+  #// Get our main DIV.
   div = $(domEl)
 
   if @options.widgetEnable
-    # Get our pieces.
+    #// Get our pieces.
     values = output.slice(0,-1).split("~")
 
-    # Initialize our HTML.
+    #// Initialize our HTML.
     stravaHTML = ''
 
     if values[0] != "NA"
 
-      # Define variables
+      #// Define variables
       wDistance = values[0]
       wProgress = values[1]
       wGoal = values[2]
+      mDistance = values[0]
+      mProgress = values[1]
+      mGoal = values[2]
       yDistance = values[3]
       yProgress = values[4]
       yGoal = values[5]
 
-      # Update text values
+      #// Update text values
       div.find('.wDistance').html(wDistance)
+      div.find('.mDistance').html(mDistance)
       div.find('.yDistance').html(yDistance)
 
-      # Update bar widths
+      #// Update bar widths
       div.find('.week .progress').css('width', wProgress)
       div.find('.week .goal').css('width', wGoal)
       div.find('.year .progress').css('width', yProgress)
@@ -168,14 +174,14 @@ update: (output, domEl) ->
       if parseInt(wGoal) < parseInt(wProgress)
         div.find('.week .goal').addClass('outdone')
 
-      # Show the damn thing!
+      #// Show the damn thing!
       div.css('display', 'block')
       div.animate {opacity: 1}, 250, 'swing'
     else
       div.css('display', 'none')
       div.animate {opacity: 0}, 250, 'swing'
 
-    # Sort out flex-box positioning.
+    #// Sort out flex-box positioning.
     div.parent('div').css('order', '4')
     div.parent('div').css('flex', '0 1 auto')
   else
