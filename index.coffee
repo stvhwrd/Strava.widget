@@ -6,7 +6,7 @@ options =
   #// Easily enable or disable the widget.
   widgetEnable    :         true
   #// Your Strava user ID. It's at the end of your profile page URL.
-  myid            :         "1234567"
+  myid            :         "5640764"
   #// Your Strava authorization token. Get one here - www.strava.com/settings/api.
   token           :         "m7w0ke1xnc7yrkoyik7mdaudbm257c083b6rydm3"
   #// Distance units: KM for kilometers or M for miles.
