@@ -37,13 +37,13 @@ on run (arguments)
 			set yDistance to toMiles(yDistance)
 		end if
 		
-		return Â
-			wDistance & space & unit & "~" & Â
-			wProgress & "~" & Â
-			wGoal & "~" & Â
-			yDistance & space & unit & "~" & Â
-			yProgress & "~" & Â
-			yGoal Â
+		return Ã‚
+			wDistance & space & unit & "~" & Ã‚
+			wProgress & "~" & Ã‚
+			wGoal & "~" & Ã‚
+			yDistance & space & unit & "~" & Ã‚
+			yProgress & "~" & Ã‚
+			yGoal Ã‚
 				as string
 	on error e
 		logEvent(e)
