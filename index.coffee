@@ -8,7 +8,7 @@ options =
   #// Your Strava user ID. It's at the end of your profile page URL.
   myid            :         "5640764"
   #// Your Strava authorization token. Get one here - www.strava.com/settings/api.
-  token           :         "m7w0ke1xnc7yrkoyik7mdaudbm257c083b6rydm3"
+  token           :         "6a6ede467e22b514b7d418b5d422396354f1ec68"
   #// Distance units: KM for kilometers or M for miles.
   units           :         "KM"
   #// Your yearly biking goal in kilometers.
