@@ -1,19 +1,19 @@
-#// Code originally created by the awesome members of Ubersicht community.
-#// I stole from so many I can't remember who you are, thank you so much everyone!
-#// Haphazardly adjusted and mangled by Pe8er (https://github.com/Pe8er)
+# Created by Pe8er (https://github.com/Pe8er)
+# Modified by stvhwrd
+
 
 options =
-  #// Easily enable or disable the widget.
+  # Easily enable or disable the widget.
   widgetEnable    :         true
-  #// Your Strava user ID. It's at the end of your profile page URL.
+  # Your Strava user ID. It's at the end of your profile page URL.
   myid            :         "5640764"
-  #// Your Strava authorization token. Get one here - www.strava.com/settings/api.
-  token           :         "6a6ede467e22b514b7d418b5d422396354f1ec68"
-  #// Distance units: KM for kilometers or M for miles.
+  # Your Strava authorization token. Get one here - www.strava.com/settings/api.
+  token           :         "6a6ede467e22b514b7d418b5d422396354f1ec69"
+  # Distance units: KM for kilometers or M for miles.
   units           :         "KM"
-  #// Your yearly biking goal in kilometers.
+  # Your yearly biking goal in kilometers.
   yearlygoal      :         "4000"
-  #// Stick the widget in the bottom right corner? Set to *true* if you're using it with Sidebar widget, set to *false* if you'd like to give it some breathing room and a drop shadow.
+  # Stick the widget in the bottom right corner? Set to *true* if you're using it with Sidebar widget, set to *false* if you'd like to give it some breathing room and a drop shadow.
   stickInCorner   :         false
 
 refreshFrequency:         '1h'
@@ -105,10 +105,10 @@ style: """
 options : options
 
 render: (output) ->
-  #// Initialize our HTML.
+  # Initialize our HTML.
   stravaHTML = ''
 
-  #// Create the DIVs for each piece of data.
+  # Create the DIVs for each piece of data.
   stravaHTML = "
   <img src='https://web.uvic.ca/~stvhwrd/slim-strava-banner.png' width='300'>
     <div class='wrapper'>
@@ -133,22 +133,22 @@ render: (output) ->
      </div>"
   return stravaHTML
 
-#// Update the rendered output.
+# Update the rendered output.
 update: (output, domEl) ->
 
-  #// Get our main DIV.
+  # Get our main DIV.
   div = $(domEl)
 
   if @options.widgetEnable
-    #// Get our pieces.
+    # Get our pieces.
     values = output.slice(0,-1).split("~")
 
-    #// Initialize our HTML.
+    # Initialize our HTML.
     stravaHTML = ''
 
     if values[0] != "NA"
 
-      #// Define variables
+      # Define variables
       wDistance = values[0]
       wProgress = values[1]
       wGoal = values[2]
@@ -159,12 +159,12 @@ update: (output, domEl) ->
       yProgress = values[4]
       yGoal = values[5]
 
-      #// Update text values
+      # Update text values
       div.find('.wDistance').html(wDistance)
       div.find('.mDistance').html(mDistance)
       div.find('.yDistance').html(yDistance)
 
-      #// Update bar widths
+      # Update bar widths
       div.find('.week .progress').css('width', wProgress)
       div.find('.week .goal').css('width', wGoal)
       div.find('.year .progress').css('width', yProgress)
@@ -174,14 +174,14 @@ update: (output, domEl) ->
       if parseInt(wGoal) < parseInt(wProgress)
         div.find('.week .goal').addClass('outdone')
 
-      #// Show the damn thing!
+      # Show the damn thing!
       div.css('display', 'block')
       div.animate {opacity: 1}, 250, 'swing'
     else
       div.css('display', 'none')
       div.animate {opacity: 0}, 250, 'swing'
 
-    #// Sort out flex-box positioning.
+    # Sort out flex-box positioning.
     div.parent('div').css('order', '4')
     div.parent('div').css('flex', '0 1 auto')
   else
