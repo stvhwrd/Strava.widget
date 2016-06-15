@@ -11,12 +11,13 @@ This widget displays your weekly and year-to-date cycling stats from [Strava](ht
 
 ## How to Use
 
-#### Option 1A:  Zip file:
+#### Option 1:  Zip file:
 
 1. Unzip and copy `Strava.widget` folder to `~/Library/Application Support/Übersicht/widgets` folder.
 
+2. Open `~/Library/Application Support/Übersicht/widgets/Strava.widget/index.coffee` in a text editor.
 
-#### Option 2B:  Git clone:
+#### Option 2:  Git clone:
 
 1. Open a Terminal window.
 
@@ -24,11 +25,11 @@ This widget displays your weekly and year-to-date cycling stats from [Strava](ht
 
 3. Execute command `git clone https://github.com/stvhwrd/Strava.widget`
 
+4. Open `~/Library/Application Support/Übersicht/widgets/Strava.widget/index.coffee` in a text editor.
 
+<br>
 
-1. Open `~/Library/Application Support/Übersicht/widgets/Strava.widget/index.coffee` in a text editor.
-
-2. Edit the values in lines 9 - 19 to set your preferences:
+In your text editor, edit the values on lines 9 - 19 to set your preferences:
 
 ```
 options =
