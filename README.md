@@ -53,7 +53,9 @@ The widget currently supports flex positioning, easy background blur and contain
 
 ##### This is a fork of Piotr Gajos' widget.  [See Pe8er's other widgets](https://github.com/Pe8er/Ubersicht-Widgets)
 
-# License: MIT License
+# License
+
+MIT License
 
 Copyright (c) 2016 Stevie Howard
 
