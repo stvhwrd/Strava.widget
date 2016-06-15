@@ -11,9 +11,24 @@ This widget displays your weekly and year-to-date cycling stats from [Strava](ht
 
 ## How to Use
 
-1. Unzip and copy `Strava.widget` folder to `~/Library/Application Support/Übersicht/Widgets` folder.
-1. Open `Strava/widget/index.coffee` in a text editor.
-2. Edit values in lines 7-13 to set your preferences:
+#### Option 1A:  Zip file:
+
+1. Unzip and copy `Strava.widget` folder to `~/Library/Application Support/Übersicht/widgets` folder.
+
+
+#### Option 2B:  Git clone:
+
+1. Open a Terminal window.
+
+2. Execute command `cd ~/Library/Application Support/Übersicht/widgets`
+
+3. Execute command `git clone https://github.com/stvhwrd/Strava.widget`
+
+
+
+1. Open `~/Library/Application Support/Übersicht/widgets/Strava.widget/index.coffee` in a text editor.
+
+2. Edit the values in lines 9 - 19 to set your preferences:
 
 ```
 options =
@@ -21,20 +36,18 @@ options =
   widgetEnable  :         true
   # Your Strava user ID. It's at the end of your profile page URL.
   myid          :         "XXX"
-  # Your Strava authorization token. Get one here: https://www.strava.com/settings/api. If you keep using mine, you will see my stats. Those aren't very impressive :)
+  # Your Strava authorization token. Get one here: https://www.strava.com/settings/api.
   token         :         "XXXX"
   # Distance units: KM for kilometers or M for miles.
   units         :         "KM"
   # Your yearly biking goal in kilometers.
   yearlygoal    :         "4000"
-  # Vertical distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. No need to put it inside Sidebar folder!
+  # Vertical distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. There is no need to put it inside Sidebar folder.
   top           :         "0"
-  # Horizontal distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. No need to put it inside Sidebar folder!
+  # Horizontal distance from top left corner of the screen. Set it to 0 if you're using this widget within Sidebar meta-widget. There is no need to put it inside Sidebar folder.
   left          :         "0"
 ```
 
-If you don't edit these, the widget will show my statistics. (Which aren't that impressive at all!)
+The widget currently supports flex positioning, easy background blur and contains tons of probably very poorly written code.
 
-It supports flex positioning, easy background blur and tons of probably very poorly written code.
-
-This is a fork of Piotr Gajos' widget.  [See Pe8er's other widgets](https://github.com/Pe8er/Ubersicht-Widgets)
+##### This is a fork of Piotr Gajos' widget.  [See Pe8er's other widgets](https://github.com/Pe8er/Ubersicht-Widgets)
