@@ -110,7 +110,7 @@ render: (output) ->
 
   # Create the DIVs for each piece of data.
   stravaHTML = "
-  <img src='https://web.uvic.ca/~stvhwrd/slim-strava-banner.png' width='300'>
+  <img src='Strava.widget/slim-strava-banner.png' width='300'>
     <div class='wrapper'>
       <div class='week'>
         <span class='left'>Week</span>
