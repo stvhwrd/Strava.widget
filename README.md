@@ -3,7 +3,7 @@
 
 ![Screenshot](https://github.com/stvhwrd/Strava.widget/blob/master/screenshot.png)
 
-## [Download](https://github.com/stvhwrd/Strava.widget/raw/master/Strava.widget.zip)
+## [Download](https://github.com/stvhwrd/Strava.widget/archive/master.zip)
 
 This widget displays your weekly and year-to-date cycling stats from [Strava](https://www.strava.com/).
 
